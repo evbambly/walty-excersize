@@ -7,17 +7,8 @@ export function nextSearch(nextSearch) {
   };
 }
 
-export function clear() {
-  return {
-    type: "CLEAR",
-    payload: "",
-  };
-}
-
-function reducer(searches = [""], action) {
+function reducer(searches = [], action) {
   switch (action.type) {
-    case "CLEAR":
-      return [""];
     case "PUSH":
       if (searches.length > 2) {
         searches = searches.slice(0, 2);

@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { nextSearch } from "../redux";
-import { useSelector } from "react-redux";
-import LastSearches from "../components/lastSearches"
+import LastSearches from "../components/lastSearches";
+import "./home.css";
 
 function Home() {
   const [searchTags, setSearchTags] = useState("");
-  const lastSearches = useSelector((searches) => searches[0] ?? [""]);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -20,18 +19,25 @@ function Home() {
     dispatch(nextSearch(query));
   };
   return (
-    <div>
-      <input
-        type="text"
-        value={searchTags}
-        onChange={(e) => {
-          setSearchTags(e.target.value);
-        }}
-        placeholder="search for pictures"
-      />
-      <button onClick={handleSearch}>Search</button>
-     <LastSearches />
-    </div>
+    <form className="form" onSubmit={handleSearch}>
+      <div className="field">
+        <input
+          type="text"
+          value={searchTags}
+          onChange={(e) => {
+            setSearchTags(e.target.value);
+          }}
+          placeholder="search for pictures"
+          className="input"
+        />
+        <span className="label">Search images from Pixabay</span>
+      </div>
+      <br/>
+      <button className="btn" type="submit" onClick={handleSearch}>
+        Search
+      </button>
+      <LastSearches />
+    </form>
   );
 }
 

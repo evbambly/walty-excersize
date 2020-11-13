@@ -4,14 +4,18 @@ import { useSelector } from "react-redux";
 function LastSearches() {
   const searches = useSelector((searches) => searches);
   return (
-    <div>
-      <h4>Last 3 searches</h4>
+    <div style={{fontSize: "1.5rem"}}>
       {searches.length < 1 ? (
-        <div>None Yet!</div>
+        <h4>You haven't searched for anything yet!</h4>
       ) : (
-      searches.map((search, index) => <div key={index}>{
-          search === "" ? "All Photos!" : `#${search.replace(" ", " #")}`
-      }</div>)
+        <>
+          <h4>Last 3 searches</h4>
+          {searches.map((search, index) => (
+            <div className="search-query" key={index}>
+              {search === "" ? "All Photos!" : `#${search.replaceAll(" ", " #")}`}
+            </div>
+          ))}
+        </>
       )}
     </div>
   );

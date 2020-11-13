@@ -7,14 +7,23 @@
   margin-top: 2rem;
   pointer-events: none;
 }
-
+.Header-cover {
+  content: "";
+  min-height: 25vh;
+}
 
 .App-header {
+  height: max-content;
   background: linear-gradient(to bottom right, #282c34, #484c48) ;
-  min-height: 10vh;
   align-items: center;
   justify-content: center;
   width: 100%;
+  position: fixed;
+  top: 0;
+}
+
+.App-link {
+  margin-bottom: .5rem;
 }
 
 .App-link *{

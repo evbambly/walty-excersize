@@ -1,0 +1,8 @@
+.image-container {
+  max-width: 70%;
+  margin: 0 auto;
+}
+
+.image {
+  max-width: 30vw;
+}
