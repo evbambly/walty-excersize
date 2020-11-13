@@ -47,7 +47,7 @@ function Search() {
           <div className="image-container">
             {images.map((image, index) => {
               return (
-                <a href={image.pageURL} key={image.id}>
+                <a href={image.pageURL} key={image.pageURL}>
                   <img
                     src={image.webformatURL}
                     alt="search result"
